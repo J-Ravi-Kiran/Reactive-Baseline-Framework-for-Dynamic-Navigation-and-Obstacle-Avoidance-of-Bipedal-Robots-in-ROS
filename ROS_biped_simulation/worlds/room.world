@@ -1,0 +1,78 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <world name="room">
+
+    <include>
+      <uri>model://sun</uri>
+    </include>
+
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+
+    <!-- Walls -->
+    <model name="walls">
+      <static>true</static>
+      <link name="walls_link">
+
+        <!-- North wall -->
+        <collision name="north_collision">
+          <pose>0 5 1 0 0 0</pose>
+          <geometry>
+            <box><size>10 0.1 2</size></box>
+          </geometry>
+        </collision>
+        <visual name="north_visual">
+          <pose>0 5 1 0 0 0</pose>
+          <geometry>
+            <box><size>10 0.1 2</size></box>
+          </geometry>
+        </visual>
+
+        <!-- South wall -->
+        <collision name="south_collision">
+          <pose>0 -5 1 0 0 0</pose>
+          <geometry>
+            <box><size>10 0.1 2</size></box>
+          </geometry>
+        </collision>
+        <visual name="south_visual">
+          <pose>0 -5 1 0 0 0</pose>
+          <geometry>
+            <box><size>10 0.1 2</size></box>
+          </geometry>
+        </visual>
+
+        <!-- East wall -->
+        <collision name="east_collision">
+          <pose>5 0 1 0 0 0</pose>
+          <geometry>
+            <box><size>0.1 10 2</size></box>
+          </geometry>
+        </collision>
+        <visual name="east_visual">
+          <pose>5 0 1 0 0 0</pose>
+          <geometry>
+            <box><size>0.1 10 2</size></box>
+          </geometry>
+        </visual>
+
+        <!-- West wall -->
+        <collision name="west_collision">
+          <pose>-5 0 1 0 0 0</pose>
+          <geometry>
+            <box><size>0.1 10 2</size></box>
+          </geometry>
+        </collision>
+        <visual name="west_visual">
+          <pose>-5 0 1 0 0 0</pose>
+          <geometry>
+            <box><size>0.1 10 2</size></box>
+          </geometry>
+        </visual>
+
+      </link>
+    </model>
+
+  </world>
+</sdf>

@@ -1,0 +1,15 @@
+<launch>
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find biped_simulation)/worlds/room.world"/>
+    <arg name="paused" value="true"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="gui" value="true"/>
+  </include>
+
+  <!-- Moving obstacle -->
+  <node name="spawn_moving_block"
+        pkg="gazebo_ros"
+        type="spawn_model"
+        args="-sdf -model moving_block -file $(find biped_simulation)/models/moving_block/model.sdf -x 2.0 -y 0.0 -z 0.0"/>
+
+</launch>

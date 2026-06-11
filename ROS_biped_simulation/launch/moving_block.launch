@@ -1,0 +1,6 @@
+<launch>
+  <node name="move_block"
+        pkg="biped_simulation"
+        type="move_block.py"
+        output="screen"/>
+</launch>

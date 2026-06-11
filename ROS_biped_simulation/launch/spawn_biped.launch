@@ -1,0 +1,27 @@
+<launch>
+
+  <!-- Room -->
+  <include file="$(find biped_simulation)/launch/room.launch"/>
+
+  <!-- Robot description -->
+  <param name="robot_description"
+         command="$(find xacro)/xacro $(find biped_simulation)/urdf/biped.urdf"/>
+
+  <!-- Spawn robot -->
+  <node name="spawn_biped" pkg="gazebo_ros" type="spawn_model"
+        args="-urdf -param robot_description -model biped -x 0 -y 0 -z 0.45"/>
+
+  <!-- Load controllers -->
+  <rosparam file="$(find biped_simulation)/config/controllers.yaml" command="load"/>
+
+  <!-- Controller spawner -->
+  <node name="controller_spawner"
+        pkg="controller_manager"
+        type="spawner"
+        args="joint_state_controller
+              left_hip_controller left_knee_controller left_ankle_controller
+              right_hip_controller right_knee_controller right_ankle_controller"
+        output="screen"/>
+
+</launch>
+

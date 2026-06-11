@@ -1,0 +1,6 @@
+<launch>
+  <node name="stage1_controller"
+        pkg="biped_simulation"
+        type="stage1_controller.py"
+        output="screen"/>
+</launch>
